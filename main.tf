@@ -4,7 +4,7 @@ provider "azurerm" {
 tenant_id = "c36bb2c7-0531-4723-bd3b-d70b6598b8d2"
 subscription_id = "8cb0b5b9-9328-42b6-87f1-07ba01d7369c"
 client_id = "ace0716d-ab5b-4645-9220-387622391dd0"
-client_secret = "BwI8Q~X7J6D~6Heey5W6Lo7jmPT7kgWE-CItEdoK"
+client_secret = "~~E8Q~-Md6fc~UowwffJwtI60457GVyvTpCTrdn-"
 features {}
 }
 # Create a resource group
