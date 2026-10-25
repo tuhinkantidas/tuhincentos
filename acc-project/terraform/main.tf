@@ -106,17 +106,3 @@ data "aws_ami" "amazon_linux" {
   }
 }
 
-output "instance_id" {
-  description = "EC2 instance ID"
-  value       = aws_instance.demo.id
-}
-
-output "public_ip" {
-  description = "EC2 public IP (HTTP is restricted to my_ip_cidr)"
-  value       = aws_instance.demo.public_ip
-}
-
-output "application_url" {
-  description = "Open from the IP address configured in my_ip_cidr"
-  value       = "http://${aws_instance.demo.public_ip}"
-}
