@@ -40,7 +40,10 @@ Never commit `terraform.tfvars`, private keys, credentials, Terraform state, pro
 ## Failure and recovery experiment
 After confirming the endpoint works, record a baseline response and timestamp. Stop the container, observe the health check fail, restart it, and record the time until HTTP 200 returns. Repeat a few times and report the actual observed recovery times. Do not invent an SLA or recovery result.
 
-The current template does not open SSH inbound in the NSG. Use Azure Run Command or a deliberately restricted temporary SSH rule if needed; remove temporary access after the experiment.
+The current template does not open SSH inbound in the NSG. Use Azure Run Command or a deliberately restricted temporary SSH rule if needed; remove temporary access after the experiment. The repeatable experiment script is `terraform/recovery-experiment.sh`. Run it on the VM only after the app is healthy: `bash recovery-experiment.sh`. It stops and restarts the demo container three times by default and writes measured timestamps and recovery durations to `recovery-results.csv`. It deliberately records observed values rather than assuming a target recovery time.
+
+## Automated code checks
+A GitHub Actions workflow (`.github/workflows/azure-project-ci.yml`) runs on project changes and pull requests. It tests the `/` and `/health` endpoints, builds the Docker image, checks Terraform formatting, and runs `terraform validate`. These checks validate code; they do not prove that the live Azure VM is reachable.
 
 ## Monitoring and evidence
 Azure Monitor / Log Analytics resources are **not** provisioned by this starter. If time permits, configure monitoring separately and capture real VM metrics/logs. Do not claim monitoring is configured unless you have evidence.
