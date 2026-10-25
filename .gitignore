@@ -1,0 +1,21 @@
+# Terraform local cache and downloaded providers
+**/.terraform/**
+terraform-provider-azurerm*.exe
+terraform-provider-azurerm*
+*.tfstate
+*.tfstate.*
+*.tfplan
+crash.log
+crash.*.log
+
+# Local Terraform inputs can contain public IPs and key material
+**/terraform.tfvars
+**/terraform.tfvars.json
+!**/terraform.tfvars.example
+
+# Private keys and local secrets
+*.pem
+*.key
+id_rsa
+id_ed25519
+.env
