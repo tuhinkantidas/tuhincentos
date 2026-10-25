@@ -28,5 +28,5 @@ variable "allowed_http_cidr" {
 variable "vm_size" {
   description = "Check regional availability and current Azure pricing before apply"
   type        = string
-  default     = "Standard_B2s"
+  default     = "Standard_B2als_v2"
 }
